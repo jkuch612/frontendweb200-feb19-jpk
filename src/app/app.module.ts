@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
@@ -12,6 +13,7 @@ import { TodoEntryComponent } from './components/todo-entry/todo-entry.component
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { TodoDataService } from './components/todo/todo-data.service';
 import { TodoComponent } from './components/todo/todo.component';
+import { LibraryModule } from './features/library/library.module';
 import { TodosReduxModule } from './features/todos-redux/todos-redux.module';
 import { reducers } from './reducers';
 
@@ -30,9 +32,11 @@ import { reducers } from './reducers';
     BrowserModule,
     AppRoutingModule,
     TodosReduxModule,
+    LibraryModule,
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument(),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([]),
+    FormsModule
   ],
   providers: [TodoDataService],
   bootstrap: [AppComponent]

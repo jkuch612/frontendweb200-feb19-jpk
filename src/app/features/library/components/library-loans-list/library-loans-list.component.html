@@ -1,0 +1,16 @@
+<h6>Books On-Loan</h6>
+<ul class="list-unstyled">
+  <li class="alert alert-info"
+      *ngFor="let item of books">
+    <div class="row">
+      <div class="col-10">{{item.title}} by {{item.author}} - {{item.format}}</div>
+      <div class="col-2">
+        <input type="button"
+               value="Return"
+               (click)="returnBook(item)"
+               class="btn btn-primary">
+      </div>
+    </div>
+
+  </li>
+</ul>

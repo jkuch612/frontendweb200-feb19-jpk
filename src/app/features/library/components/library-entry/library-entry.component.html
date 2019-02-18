@@ -1,0 +1,43 @@
+<form #bookForm="ngForm"
+      (ngSubmit)="addForm(author, title, format, bookForm)">
+  <div class="form-group">
+    <label>Title</label>
+    <input class="form-control"
+           name="title"
+           [(ngModel)]="bookTitle"
+           #titleModel="ngModel"
+           #title
+           required>
+    <div *ngIf="titleModel.invalid && (titleModel.dirty || titleModel.touched)"
+         class="alert alert-danger">
+      <div *ngIf="titleModel.errors['required']">
+        Please provide a title.
+      </div>
+    </div>
+    <label>Author</label>
+    <input class="form-control"
+           name="author"
+           [(ngModel)]="bookAuthor"
+           #authorModel="ngModel"
+           #author
+           required>
+    <div *ngIf="authorModel.invalid && (authorModel.dirty || authorModel.touched)"
+         class="alert alert-danger">
+      <div *ngIf="authorModel.errors['required']">
+        Please provide an author.
+      </div>
+    </div>
+    <label>Format</label>
+    <select class="form-control"
+            #format>
+      <option *ngFor="let item of formats"
+              [value]="item">{{item}}</option>
+    </select>
+    <div class='mt-1'>
+      <input type="submit"
+             class="btn btn-primary"
+             value="Add"
+             [disabled]="!bookForm.form.valid">
+    </div>
+  </div>
+</form>

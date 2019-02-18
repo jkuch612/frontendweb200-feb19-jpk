@@ -1,0 +1,13 @@
+<header>
+  <h5>The Library</h5>
+  <h6>A Lab project</h6>
+</header>
+<section class="row">
+  <div class="col">
+    <app-library-entry [formats]="format$ | async"></app-library-entry>
+  </div>
+  <div class="col">
+    <app-library-list [books]="availableBooks$ | async"></app-library-list>
+    <app-library-loans-list [books]="booksOnLoan$ | async"></app-library-loans-list>
+  </div>
+</section>
